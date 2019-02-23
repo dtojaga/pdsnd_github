@@ -1,3 +1,5 @@
+"""Created by Dino Tojaga"""
+
 import time
 import pandas as pd
 import numpy as np
@@ -36,9 +38,9 @@ def get_filters():
     while month not in months:
         month = input('Input not recognized as valid month, please try again:\n')
         month = month.lower().strip()
-                
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    
+
     days = ['all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
     day = input("Please select a day, or 'all' to see data for all days:\n")
     day = day.lower().strip()
@@ -64,7 +66,7 @@ def load_data(city, month, day):
     """
 
     df = pd.read_csv(CITY_DATA[city])
-    if month != 'all':        
+    if month != 'all':
         df['month'] = pd.to_datetime(df['Start Time']).dt.month
         month_dict = {'january': 1, 'february': 2, 'march': 3, 'april':4 , 'may': 5, 'june': 6}
         df = df[df['month']==month_dict[month]]
@@ -115,8 +117,8 @@ def station_stats(df):
     df['Station Combo'] = df['Start Station'] + ' and ' + df['End Station']
     most_common_combo = df['Station Combo'].mode()[0]
     print('The most commonly used combination of stations is: {}'.format(most_common_combo))
-    
-    
+
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -152,7 +154,7 @@ def user_stats(df):
     print('Number of customers: {}'.format(user_type_cust))
 
     # TO DO: Display counts of gender
-    if 'Gender' in df.columns:    
+    if 'Gender' in df.columns:
         user_type_male = df[df['Gender'] == 'Male'].count()[0]
         user_type_female = df[df['Gender'] == 'Female'].count()[0]
         print('Number of male users: {}'.format(user_type_male))
@@ -184,7 +186,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
+
         see_raw_data = input("\nWould you like to see the first five lines of raw data? Enter 'yes' or 'no'\n")
         see_raw_data = see_raw_data.lower().strip()
         repeat_counter = 1
@@ -192,7 +194,7 @@ def main():
             print(df.iloc[(5*(repeat_counter-1)):(5*repeat_counter)])
             see_raw_data = input("\nWould you like to see five more lines of raw data? Enter 'yes' or 'no'\n")
             repeat_counter = repeat_counter + 1
-        
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
