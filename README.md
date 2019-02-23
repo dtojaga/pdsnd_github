@@ -14,4 +14,7 @@ Takes CSV input and outputs analysis of bikeshare data
 chicago.csv, new_york_city.csv, washington.csv
 
 ### Credits
-It was all me
+It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+
+### People I give thanks to
+My mom and my dad

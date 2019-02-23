@@ -24,10 +24,10 @@ def get_filters():
 
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
-    city = input('Please select one of the following cities: chicago, new york city, or washington:\n')
+    city = input('Please select one of the following cities: Chicago, New York City, or Washington:\n')
     city = city.lower().strip()
     while city not in CITY_DATA:
-        city = input('Input not recognized as chicago, new york city, or washington. Please try again:\n')
+        city = input('Input not recognized as Chicago, New York City, or Washington. Please try again:\n')
         city = city.lower().strip()
 
     # TO DO: get user input for month (all, january, february, ... , june)
