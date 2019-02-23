@@ -4,6 +4,9 @@ Created February 1st
 ### Project Title
 Bikeshare analytics
 
+### Purpose
+Done for Udacity course project submission
+
 ### Description
 Takes CSV input and outputs analysis of bikeshare data
 
